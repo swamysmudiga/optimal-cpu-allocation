@@ -6,7 +6,6 @@ public class allocate {
     //Total TC = O(Nsquare)
     //TOtal SC = O(N)
     static Map<Integer, Integer> allocateCPU(List<Integer> instances, List<Integer> available, int requestedCpu) {
-        //edge condition available should be calculated and throw an exception requestedCpu greater than available
 
         //Calculating totalAvailable CPUs
         int totalAvailable = 0;
@@ -15,7 +14,7 @@ public class allocate {
         }
 
         //initializing the map to return {instances : cpu allocation}
-        //SC = O(N) where no of the worst case store upto all the instance size
+        //SC = O(N)  the worst case store all the instance size
         Map<Integer, Integer> allocation = new LinkedHashMap<>();
 
         //Edge Condition if Requested CPU <= 0
