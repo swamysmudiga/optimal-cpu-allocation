@@ -76,14 +76,18 @@ public class allocate {
             }
         }
 
+        if (bestAllocation.isEmpty()) {
+            System.out.println("No valid allocation found that satisfies the constraints with requested CPU: " + requestedCpu);
+        }
+
         return bestAllocation;
     }
 
     public static void main(String[] args) {
         List<Integer> instances = Arrays.asList(1, 2, 3);
-        List<Integer> available = Arrays.asList(5, 5, 4);
+        List<Integer> available = Arrays.asList(5, 5, 3);
 
-        int requestedCpu = 9; // test with 9, 10, 11, 14, 15
+        int requestedCpu = 11; // test with 9, 10, 11, 14, 15
 
         Map<Integer, Integer> result = allocateCPU(instances, available, requestedCpu);
         System.out.println("Optimal result: " + result);

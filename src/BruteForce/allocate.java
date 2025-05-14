@@ -68,7 +68,7 @@ public class allocate {
                 return allocation;
             }
         }
-
+        System.out.println("No valid allocation found that satisfies the constraints with requested CPU: " + requestedCpu);
         return new HashMap<>();
     }
 
@@ -85,8 +85,8 @@ public class allocate {
 
 
         List<Integer> instances = Arrays.asList(1,2,3);
-        List<Integer> available = Arrays.asList(5,5,4);
-        int requestedCpu = 6;
+        List<Integer> available = Arrays.asList(5,5,3);
+        int requestedCpu =12;
 
         Map<Integer, Integer> result = allocateCPU(instances, available, requestedCpu);
         System.out.println("Optimal result: " + result);
