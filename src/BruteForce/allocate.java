@@ -42,21 +42,22 @@ public class allocate {
         }
 
         // Sort by available CPU descending
-        //TC = O(nlogn)
+        //TC = O(nlogn) (1, 5), (2, 5), (3, 3)
         combined.sort((a, b) -> Integer.compare(b[1], a[1]));
 
         //TC = O(N) where N is No of instance
         for (int k = 1; k <= n; k++) {
-            int q = requestedCpu / k;
-            int r = requestedCpu % k;
+            int q = requestedCpu / k; //12/3 = 4
+            int r = requestedCpu % k;// = 0
 
             boolean valid = true;
 
             //O() = 1..2..3..n = n (n + 1)/2 = O(nSq)
             for (int i = 0; i < k; i++) {
-                int need = (i < r) ? q + 1 : q;
-                if (combined.get(i)[1] >= need) {
-                    allocation.put(combined.get(i)[0], need);
+                // q = 4
+                int need = (i < r) ? q + 1 : q;//need 4
+                if (combined.get(i)[1] >= need) { //3 >= 4
+                    allocation.put(combined.get(i)[0], need);//(1, 4),(2,4),
                 } else {
                     valid = false;
                     break;
@@ -84,7 +85,7 @@ public class allocate {
 
 
         List<Integer> instances = Arrays.asList(1,2,3);
-        List<Integer> available = Arrays.asList(5,5,3);
+        List<Integer> available = Arrays.asList(5,5,4); //4, 4, 4
         int requestedCpu =12;
 
         Map<Integer, Integer> result = allocateCPU(instances, available, requestedCpu);
